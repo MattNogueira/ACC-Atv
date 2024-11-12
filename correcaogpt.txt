@@ -1,0 +1,51 @@
+@echo off  :: Desativa a exibição dos comandos na tela.
+cls  :: Limpa a tela.
+
+:menu  :: Define um rótulo de menu para retornar a este ponto no script.
+cls  :: Limpa a tela novamente.
+color 2  :: Define a cor do texto para verde (2).
+
+echo             Programando como um raiz!!!  :: Exibe o texto "Programando como um raiz!!!".
+echo ===============================================  :: Exibe uma linha de "=" para visual separador.
+echo *1 - Mostre os arquivos que está na pasta*  :: Exibe a opção 1 para mostrar os arquivos na pasta atual.
+echo *2 - Mostre as informações do sistema onde estou*  :: Exibe a opção 2 para mostrar informações do sistema.
+echo *3 - Sair*  :: Exibe a opção 3 para sair do programa.
+echo ===============================================  :: Exibe uma linha de "=" para visual separador.
+
+set /p opcao= Escolha uma opcao:  :: Lê a entrada do usuário e armazena na variável "opcao".
+echo -------------------------------  :: Exibe uma linha para separar visualmente a entrada do usuário.
+
+if %opcao% equ 1 goto opcao1  :: Se a opção for "1", vai para o rótulo ":opcao1".
+if %opcao% equ 2 goto opcao2  :: Se a opção for "2", vai para o rótulo ":opcao2".
+if %opcao% equ 3 goto opcao3  :: Se a opção for "3", vai para o rótulo ":opcao3".
+if %opcao% GEQ 4 goto opcao4  :: Se a opção for maior ou igual a "4", vai para o rótulo ":opcao4".
+
+:opcao1  :: Rótulo para a opção 1.
+cls  :: Limpa a tela.
+dir  :: Mostra o conteúdo da pasta atual.
+echo ---------  :: Exibe uma linha separadora.
+echo *arquivos lidos*  :: Exibe o texto "*arquivos lidos*".
+echo ---------  :: Exibe outra linha separadora.
+pause  :: Pausa para que o usuário possa ver os arquivos listados.
+goto menu  :: Retorna ao menu principal.
+
+:opcao2  :: Rótulo para a opção 2.
+cls  :: Limpa a tela.
+dir  :: Mostra o conteúdo da pasta atual (mas não está correto para exibir informações do sistema).
+echo ---------  :: Exibe uma linha separadora.
+echo *este é se sistema*  :: Exibe o texto "*este é se sistema*".
+echo ---------  :: Exibe outra linha separadora.
+pause  :: Pausa para que o usuário possa ver a saída.
+goto menu  :: Retorna ao menu principal.
+
+:opcao3  :: Rótulo para a opção 3.
+cls  :: Limpa a tela.
+exit  :: Encerra o programa.
+
+:opcao4  :: Rótulo para opções inválidas.
+cls  :: Limpa a tela.
+echo ---------  :: Exibe uma linha separadora.
+echo *Opção Inválida*  :: Exibe o texto "*Opção Inválida*".
+echo ---------  :: Exibe outra linha separadora.
+pause  :: Pausa para que o usuário veja a mensagem de erro.
+goto menu  :: Retorna ao menu principal.
